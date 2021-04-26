@@ -4,8 +4,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 with open('index.html', 'r') as f:
     index_file = f.read()
 
-with open('result.html', 'r') as f:
-    result_file = f.read()
+
 
 
 class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
@@ -14,40 +13,11 @@ class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
 
-        html = index_file.format(
-            header = '投稿画面',
-            title = 'ブログのタイトル',
-            content = 'ブログの内容'
-        )
-        self.wfile.write(html.encode('UTF-8'))
+
+        self.wfile.write(index_file.encode('UTF-8'))
         return None
 
-
-    def do_POST(self):
-
-        form = FieldStorage(
-            fp = self.rfile,
-            headers=self.headers,
-            environ={'REQUEST_METHOD':'POST'})
-
-        title_form = form['titlefield'].value
-        content_form = form['contentfield'].value
-
-
-        self.send_response(200)
-        self.end_headers()
-
-        html = result_file.format(
-            header = '投稿結果',
-            title_message = 'タイトル：',
-            content_message = '投稿内容：',
-            title = title_form,
-            content = content_form,
-            link = '/result.html'
-        )
-        self.wfile.write(html.encode('utf-8'))
-        return None
-
+    
 def run(server_class=HTTPServer, handler_class=OriginalHTTPRequestHandler):
     server_address = ('', 8000)
     httpd = server_class(server_address, handler_class)
