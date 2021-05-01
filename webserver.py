@@ -8,13 +8,13 @@ with open('index.html', 'r') as f:
     index_file = f.read()
 
 with open('registration.html','r') as f:
-    soup = BeautifulSoup('f.read', 'html.parser')
+    soup = f.read()
 
 
 class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
-        if re.search('registration.html$', self.path) != None:
+        if re.search('spical.html$', self.path) != None:
             self.send_response(200)
             self.end_headers()
 
@@ -40,6 +40,20 @@ class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
 
             super().do_GET()
 
+    def do_POST(self):
+        if re.search('registration.html$', self.path) != None:
+            self.send_response(200)
+            self.end_headers()
+            form = FieldStorage(
+                fp = self.rfile,
+                headers=self.headers,
+                environ={'REQUEST_METHOD':'POST'})
+            date_form=form['date'].value
+            html = soup.format(
+                setDate =date_form
+            )
+            print(date_form)
+            self.wfile.write(html.encode('UTF-8'))
 
 
 def run(server_class=HTTPServer, handler_class=OriginalHTTPRequestHandler):

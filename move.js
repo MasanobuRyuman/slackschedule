@@ -94,8 +94,13 @@ document.querySelector('#next').addEventListener('click', moveCalendar)
 //カレンダーの日付が押されたら
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
-        window.location.href = 'registration.html';
-        alert('クリックした日付は' + e.target.dataset.date + 'です')
+        let element = document.getElementById('date');
+        element.value = e.target.dataset.date;
+        document.getElementById("test").click();
+
+        console.log(element.value)
+
+
     }
 })
 
