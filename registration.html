@@ -14,13 +14,15 @@
     </header>
     <div name="wrap">
         <h1 name="date">日付</h1>
+        <h1><?php echo 'タイトルです'; ?></h1>
         <h1>{setDate}</h1>
         <p>予定内容</p>
-        <form method="POST" action="action.html">
+        <form method="POST" action="index.php">
             <textarea name="contentfield" id="contentfield" cols="30" rows="10" placeholder="投稿内容を入力"></textarea><br>
             <p>投稿時刻</p>
             <input type="time" name="time" id="time" ></input><br>
-            <input type="submit" vaule="決定"></input>
+            <input type="time" name="beforeTime" id="beforeTime"></input><br>
+            <input name="schedule" type="submit" vaule="決定"></input>
         </form>
     </div>
     <footer>

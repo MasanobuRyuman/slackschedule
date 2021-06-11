@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カレンダー</title>
+    <title>Document</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Slackカレンダー</h1>
-    </header>
+
+
+    <form method="POST" action="main.php">
+        <button name="registration" onclick="loginClick()" id="registration">ログインor新規登録</button>
+    </form>
+
     <div name="wrap">
-        <button id="prev" type="button">前の月</button>
-        <button id="next" type="button">次の月</button>
-        <div id="calendar"></div>
-
-        <form method="POST" action="registration.html">
-            <input name="date" id="date" type="hidden" value= "{{timedate}}">
-            <input type="submit" id="test" style="display:none;">
-        </form>
-
-
 
     </div>
-    <footer>
-
-    </footer>
-
-    <script type="text/javascript" src="move.js"></script>
+    
 </body>
+<script type="text/javascript" src="move.js"></script>
+
 </html>

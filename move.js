@@ -1,3 +1,10 @@
+function loginClick(){
+    fastId = document.getElementById("attention");
+    fastId.setAttribute(name,"loginIn")
+    alert(fastId);
+}
+
+//カレンダー作成
 const weeks = ["日","月","火","水","木","金","土"]
 const date = new Date()
 let year = date.getFullYear()
@@ -52,6 +59,8 @@ function createCalendar(year, month) {
                 calendarHtml += '<td class="is-disabled">' + num + '</td>'
                 dayCount++
             } else {
+                month=("0"+month).slice(-2)
+                dayCount=("0"+dayCount).slice(-2)
                 calendarHtml += `<td class="calendar_td" data-date="${year}/${month}/${dayCount}">${dayCount}</td>`
                 dayCount++
             }
