@@ -4,62 +4,77 @@ import re
 from html.parser import HTMLParser
 from bs4 import BeautifulSoup
 import slack
-import schedule
+import sqlite3
+
 import datetime
-import time
-import asyncio
 
-dateDictionary={}
-date_form=0
+dbname = 'main.db'
+# DBを作成する（既に作成されていたらこのDBに接続する）
+conn = sqlite3.connect(dbname)
+cur = conn.cursor()
+# DBのテーブルを作成している。
+cur.execute('INSERT INTO user(name,password) values(?,?)',("ryuman","oomo"))
 
+cur.execute("select * from contentTime")
+for row in cur:  # レコードを出力する
+    print (row)
 
-async def main():
+cur.execute("select * from user")
+for row in cur:  # レコードを出力する
+    print (row)
 
-    while True:
-        print("kitayo")
-        await asyncio.sleep(1)
+with open('login.html','r') as f:
+    soup = BeautifulSoup(f.read(), 'html.parser')
+with open("form.html",'r') as f:
+    form_file = f.read()
 
-loop = asyncio.get_event_loop()
-asyncio.ensure_future(main())
-
-
-with open('index.html', 'r') as f:
-    index_file = f.read()
+with open('main.html', 'r') as f:
+    main_file = f.read()
 
 with open('registration.html','r') as f:
-    soup = f.read()
+    registration_file = f.read()
 
 
 class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
-        print(self.path)
-        if re.search('spical.html$', self.path) != None:
-            self.send_response(200)
-            self.end_headers()
-
-            htmltag = soup.new_tag('html')
-            headtag = soup.new_tag("head")
-            bodytag = soup.new_tag("body")
-            sumple = soup.new_tag("h1")
-            sumple.string="slack"
-            htmltag.append(headtag)
-            htmltag.append(bodytag)
-            bodytag.append(sumple)
-
-            html=htmltag
-            soup
-            self.wfile.write(html.encode('UTF-8'))
 
 
-
-            return None
-        # 200 コードとヘッダ終了コードを送ってから本文を送り出す
-        else:
-
-
-            super().do_GET()
+        super().do_GET()
 
     def do_POST(self):
+        #最初の画面でログインが押されたら
+        if re.search('login$',self.path) != None:
+            self.send_response(200)
+            self.end_headers()
+            form = FieldStorage(
+                fp = self.rfile,
+                headers=self.headers,
+                environ={'REQUEST_METHOD':'POST'})
+
+            formtag = soup.find(id="lg")
+            attentiontag = soup.find(id="attention")
+            formtag.attrs["action"] = "loginIn"
+            attentiontag.string = ""
+            soup
+            self.wfile.write(soup.encode('UTF-8'))
+            return None
+
+        #最初の画面で新規登録が押されたら
+        if re.search("newLogin$",self.path) != None:
+            self.send_response(200)
+            self.end_headers()
+            form = FieldStorage(
+                fp = self.rfile,
+                headers=self.headers,
+                environ={'REQUEST_METHOD':'POST'})
+            formtag = soup.find(id="lg")
+            attention = soup.find(id="attention")
+            formtag.attrs["action"] = "loginNew"
+            attention.string = ""
+            soup
+            self.wfile.write(soup.encode('UTF-8'))
+            return None
+
         if re.search('registration.html$', self.path) != None:
             self.send_response(200)
             self.end_headers()
@@ -69,7 +84,7 @@ class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
                 environ={'REQUEST_METHOD':'POST'})
             global date_form
             date_form=form['date'].value
-            html = soup.format(
+            html = registration_file.format(
                 setDate =date_form
             )
             print(date_form)
@@ -84,29 +99,69 @@ class OriginalHTTPRequestHandler(SimpleHTTPRequestHandler):
                 environ={'REQUEST_METHOD':'POST'})
             content_form = form['contentfield'].value
             content_time = form["time"].value
-            if date_form in dateDictionary:
-                dateDictionary[date_form].append([content_time,content_form])
+            beforetime=form["beforeTime"].value
+            date_form=date_form.replace("/","-")
+            dte=date_form+" "+content_time
+            timetime = datetime.datetime.strptime(dte, '%Y-%m-%d %H:%M')
+
+            content_beforetime = timetime - datetime.timedelta(hours = int(beforetime[:2]))
+            content_beforetime = timetime - datetime.timedelta(minutes = int(beforetime[3:]))
+
+            cur.execute('INSERT INTO contentTime(name,time,content,beforeTime,cou) values(?,?,?,?,?)',("Ryuman",timetime,content_form,content_beforetime,0))
+
+            conn.commit()
+
+            self.wfile.write(main_file.encode('UTF-8'))
+
+        if re.search("loginIn$",self.path) != None:
+            self.send_response(200)
+            self.end_headers()
+            form = FieldStorage(
+                fp = self.rfile,
+                headers=self.headers,
+                environ={'REQUEST_METHOD':'POST'})
+            user_form = form["user"].value
+            password_form = form['password'].value
+
+            cur.execute("SELECT * FROM user WHERE name = ? AND password = ?", (user_form,password_form))
+            print(cur.fetchone())
+            if cur.fetchone() != None:
+                self.wfile.write(main_file.encode('UTF-8'))
             else:
-                dateDictionary[date_form]=[[content_time,content_form]]
-            print(dateDictionary)
-
-            self.wfile.write(index_file.encode('UTF-8'))
-
-def today():
-    dt_now = datetime . datetime . now ( )
-    print(dt_now)
-    todaydate=str(dt_now.year) + "/" + str(dt_now.month )+ "/" + str(dt_now.day)
-    if todaydate in dateDictionary:
-        for i in dateDictionary[todaydate]:
-            print("koko"+i[1])
-            print(i[0])
-            schedule.every().day.at(i[0]).do(slack.sl(str(i[1])))
+                formtag = soup.find("form")
+                attentiontag = soup.find(id="attention")
+                formtag.attrs["action"] = "loginIn"
+                attentiontag.string = "名前かパスワードが間違っています。"
+                soup
+                self.wfile.write(soup.encode('UTF-8'))
 
 
-
-
+        if re.search("loginNew$",self.path) != None:
+            self.send_response(200)
+            self.end_headers()
+            form = FieldStorage(
+               fp = self.rfile,
+               headers = self.headers,
+               environ = {'REQUEST_METHOD':'POST'}
+            )
+            user_form = form["user"].value
+            password_form = form['password'].value
+            print(user_form)
+            cur.execute("SELECT * FROM user WHERE name = ?", (user_form,))
+            if cur.fetchone() == None:
+                cur.execute('INSERT INTO user(name,password) values(?,?)',(user_form,password_form))
+                conn.commit()
+                self.wfile.write(main_file.encode('UTF-8'))
+            else:
+                formtag = soup.find("form")
+                attentiontag = soup.find(id="attention")
+                formtag.attrs["action"] = "loginNew"
+                attentiontag.string = "すでに同じ名前の人がいます。"
+                soup
+                self.wfile.write(soup.encode('UTF-8'))
+            return None
 def run(server_class=HTTPServer, handler_class=OriginalHTTPRequestHandler):
-    server_address = ('', 8001)
+    server_address = ('', 8000)
     httpd = server_class(server_address, handler_class)
     httpd.serve_forever()
 
@@ -114,9 +169,4 @@ def run(server_class=HTTPServer, handler_class=OriginalHTTPRequestHandler):
 if __name__ == '__main__':
     run()
 
-while True:
-    today = datetime . datetime . now ( )
-    today.strftime("%Y/%m/%d")
-    print(today)
-    if today in dateDictionary:
-        print("kikit")
+conn.close()
