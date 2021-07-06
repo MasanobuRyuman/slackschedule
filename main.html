@@ -10,16 +10,20 @@
 </head>
 
 <body>
-
-    <h1>Slackカレンダー</h1>
-    <form method="POST" action="main.php">
-        <button name="slackSetting">slackの設定</button>
-    </form>
-
-    <div name="wrap">
-        <button id="prev" type="button">前の月</button>
-        <button id="next" type="button">次の月</button>
-        <div id="calendar"></div>
+    <div class="container">
+        <h1 class="text-center mt-5">Slackカレンダー</h1>
+        <div class="clearfix">
+            <form method="POST" action="main.php">
+                <button name="slackSetting" class="float-right">slackの設定</button>
+            </form>
+        </div>
+        <div class="text-center">
+            <button id="prev" type="button" class="m-5">前の月</button>
+            <button id="next" type="button" class="m-5">次の月</button>
+        </div>
+        <div id ="colenderArea" class="row text-center table table-bordered table-striped m-auto">
+            <div id="calendar" class="cou-sm-4 m-auto"></div>
+        </div>
 
         <form method="POST" action="registration.php">
             <input name="date" id="date" type="hidden" value="{{timedate}}">
