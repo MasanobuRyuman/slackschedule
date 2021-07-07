@@ -89,6 +89,31 @@ if(isset($_POST["formBack"])){
     $doc -> loadHTMLFile("index.html");
     echo $doc -> saveHTML();
 }
+
+#main画面から日付がクリックされたら
+if (isset($_POST["scheduleSetting"])){
+    $schedule_date = $_POST["date"];
+    $schedule_date_complete = $schedule_date ." " . "00:00";
+    $serch_date_strat = date('Y-m-d H:i',strtotime($schedule_date_complete));
+    $serch_date_end = date('Y-m-d H:i',strtotime($schedule_date_complete."+". 23 ."hour"."+". 59 ."minutes"));
+    $stmt = mysqli_prepare($link,"select count(*) from contentTime where scheduleTime between ? and ?");
+    mysqli_stmt_bind_param($stmt,"ss",$serch_date_strat,$serch_date_end);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt,$cou);
+    while (mysqli_stmt_fetch($stmt)){
+        $count = $cou;
+    }
+    echo $count;
+    echo $serch_date_strat;
+    echo $serch_date_end;
+    if ($count >= 1){
+        echo "すでに入っていた";
+        require "settingSchedule.php";
+    }else{
+        require "registration.php";
+    }
+}
+
 #予定入力ページから「決定」が押された後
 if (isset ($_POST["contentfield"])){
     #予定の内容と時間と通知時間が書かれているかをチェック
@@ -112,7 +137,7 @@ if (isset ($_POST["contentfield"])){
         echo $before;
         echo $schedule;
         /* プリペアドステートメントを作成します */
-        $stmt = mysqli_prepare($link, "INSERT INTO contentTime(userID,content,scheduleTime,beforeTime,cou) values(?,?,?,?,1)");
+        $stmt = mysqli_prepare($link, "INSERT INTO contentTime(userID,content,scheduleTime,beforeTime,status) values(?,?,?,?,1)");
         /* マーカにパラメータをバインドします */
         mysqli_stmt_bind_param($stmt, 'isss',$userID,$content,$schedule,$before);
         mysqli_stmt_execute($stmt);
