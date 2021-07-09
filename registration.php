@@ -15,9 +15,6 @@
     <div name="wrap">
         <h1 name="date">日付</h1>
         <?php
-        if (isset ($_POST['date'])){
-            $_SESSION['date']=$_POST['date'];
-        }
         echo $_SESSION['date'];
         $dom = new DOMDocument();
         $element = $dom->createElement('input',);

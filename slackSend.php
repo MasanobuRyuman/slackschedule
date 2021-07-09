@@ -11,7 +11,7 @@ while (true){
     //print($nowTime."\n");
     //print($betweenTime."\n");
     #現在時刻から１分いないに送るデータを探す
-    $stmt = mysqli_prepare($link,"select userID and content from contentTime where beforeTime=? between beforeTime=? and status == 0");
+    $stmt = mysqli_prepare($link,"select userID,content from contentTime where status = 1 and beforeTime between ? and ?");
     mysqli_stmt_bind_param($link,"ss",$nowTime,$betweenTime);
     mysqli_stmt_execute($link);
     mysqli_stmt_bind_result($link,$result,$result2);
