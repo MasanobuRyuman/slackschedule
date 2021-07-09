@@ -94,10 +94,10 @@ if(isset($_POST["formBack"])){
 if (isset($_POST["scheduleSetting"])){
     $schedule_date = $_POST["date"];
     $schedule_date_complete = $schedule_date ." " . "00:00";
-    $serch_date_strat = date('Y-m-d H:i',strtotime($schedule_date_complete));
+    $serch_date_start = date('Y-m-d H:i',strtotime($schedule_date_complete));
     $serch_date_end = date('Y-m-d H:i',strtotime($schedule_date_complete."+". 23 ."hour"."+". 59 ."minutes"));
     $stmt = mysqli_prepare($link,"select count(*) from contentTime where scheduleTime between ? and ?");
-    mysqli_stmt_bind_param($stmt,"ss",$serch_date_strat,$serch_date_end);
+    mysqli_stmt_bind_param($stmt,"ss",$serch_date_start,$serch_date_end);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt,$cou);
     while (mysqli_stmt_fetch($stmt)){
