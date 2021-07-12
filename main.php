@@ -107,7 +107,6 @@ if (isset($_POST["scheduleSetting"])){
     }
 
     if ($count >= 1){
-        echo "すでに入っていた";
         require "settingSchedule.php";
     }else{
         require "registration.php";

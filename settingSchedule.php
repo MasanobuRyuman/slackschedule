@@ -12,14 +12,11 @@
     <div class="container">
         <h1 class="text-center">予定していること</h1>
         <?php
-        echo "kojo";
         $li = array();
         $link = mysqli_connect('localhost:8889', 'root', 'root', 'mydb');
         $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and scheduleTime between ? and ?");
         mysqli_stmt_bind_param($stmt,"sss",$_SESSION["userID"],$_SESSION["serch_date_start"],$_SESSION["serch_date_end"]);
         echo $_SESSION["serch_date_strat"];
-
-
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt,$result,$result2,$result3);
         while (mysqli_stmt_fetch($stmt)){
@@ -32,6 +29,7 @@
             foreach ($content as $content2){
                 echo $content2 . '<br />';
             }
+            echo "<button name=></button><br />";
         }
         ?></p>
 
