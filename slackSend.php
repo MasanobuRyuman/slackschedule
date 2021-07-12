@@ -1,10 +1,11 @@
 <?php
 require_once 'slack.php';
 $link = mysqli_connect('localhost:8889', 'root', 'root', 'mydb');
+
 while (true){
-    //print("mkta");
-    //slackSend("xoxb-1970271611367-2173804107493-s77NYSVYmAQkk5SsNLWDxUro","スケジュールのお知らせ","tete");
-    //print("lota");
+    print("mkta");
+    slackSend("xoxb-1970271611367-2173804107493-s77NYSVYmAQkk5SsNLWDxUro","スケジュールのお知らせ","ahahg");
+    print("lota");
     $info = array();
     $nowTime = date("Y/m/d H:i:s");
     $betweenTime = date ('Y/m/d H:i:s' ,strtotime("+". 1 . " Minutes"));
@@ -30,14 +31,8 @@ while (true){
             $token = $formalVariable;
             $channelName = $formalVariable2;
         }
-
         slackSend($token,$channelName,$value[1]);
-
-
-
     }
-
-
     sleep(1);
 }
 $close_flag = mysqli_close($link);

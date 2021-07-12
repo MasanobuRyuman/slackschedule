@@ -1,6 +1,6 @@
 <?php
 function slackSend($token,$channelName,$sendContent){
-    print("kita");
+
     $headers = [
         "Authorization: Bearer $token", //（1)
         'Content-Type: application/json;charset=utf-8'
@@ -10,8 +10,8 @@ function slackSend($token,$channelName,$sendContent){
 
     //(3)
     $post_fields = [
-        "channel" =>  "$channelName",
-        "text" => "$sendContent",
+        "channel" =>  $channelName,
+        "text" => $sendContent,
         "as_user" => true
     ];
 
@@ -23,16 +23,18 @@ function slackSend($token,$channelName,$sendContent){
         CURLOPT_POSTFIELDS => json_encode($post_fields)
     ];
     $ch = curl_init();
-
     curl_setopt_array($ch, $options);
 
     $result = curl_exec($ch);
-    print("johgaogha");
+
+    curl_close($ch);
 }
 
+
+slackSend("xoxb-1970271611367-2173804107493-s77NYSVYmAQkk5SsNLWDxUro","スケジュールのお知らせ","test");
 
 
 print($result);
 
-curl_close($ch);
+
 ?>
