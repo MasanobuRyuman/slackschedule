@@ -93,8 +93,8 @@ if(isset($_POST["formBack"])){
 #main画面から日付がクリックされたら
 if (isset($_POST["scheduleSetting"])){
 
-    $schedule_date = $_POST["date"];
-    $schedule_date_complete = $schedule_date ." " . "00:00";
+    $_SESSION['date'] = $_POST["date"];
+    $schedule_date_complete = $_SESSION['date'] ." " . "00:00";
     $_SESSION["serch_date_start"] = date('Y-m-d H:i',strtotime($schedule_date_complete));
     $_SESSION["serch_date_end"] = date('Y-m-d H:i',strtotime($schedule_date_complete."+". 23 ."hour"."+". 59 ."minutes"));
     $stmt = mysqli_prepare($link,"select count(*) from contentTime where scheduleTime between ? and ?");
