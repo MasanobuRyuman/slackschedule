@@ -16,9 +16,10 @@ if (isset ($_POST["registration"])) {
 if (isset ($_POST["login"])) {
     $userName = $_POST['user'];
     $password = $_POST['password'];
+
     #名前とパスワードが一致していることを条件としている。
-    $stmt = mysqli_prepare($link,"select count(*) from user use index(name_password) where name = ? and password = ?");
-    mysqli_stmt_bind_param($stmt, 'ss',$userName,$password);
+    $stmt = mysqli_prepare($link,"select count(*) from user use index(name_password) where name = ? ");
+    mysqli_stmt_bind_param($stmt, 's',$userName);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt,$col);
     $existence = 0;
@@ -26,16 +27,33 @@ if (isset ($_POST["login"])) {
         $existence=$col;
     }
     if ($existence == 1){
-        $prepare = mysqli_prepare($link,"select userID from user where name = ? ");
-        mysqli_stmt_bind_param($prepare,'s',$userName);
-        mysqli_stmt_execute($prepare);
-        mysqli_stmt_bind_result($prepare,$result);
-        while (mysqli_stmt_fetch($prepare)){
-            $_SESSION["userID"] = $result;
+        $stmt = mysqli_prepare($link,"select password from user use index(name_password) where name = ? ");
+        mysqli_stmt_bind_param($stmt, 's',$userName);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt,$result);
+        $hash_password;
+        while (mysqli_stmt_fetch($stmt)){
+            $hash_password = $result;
         }
-        $doc = new DOMDocument();
-        $doc -> loadHTMLFile("main.html");
-        echo $doc -> saveHTML();
+        if (password_verify($password, $hash_password)){
+            $prepare = mysqli_prepare($link,"select userID from user where name = ? ");
+            mysqli_stmt_bind_param($prepare,'s',$userName);
+            mysqli_stmt_execute($prepare);
+            mysqli_stmt_bind_result($prepare,$result);
+            while (mysqli_stmt_fetch($prepare)){
+                $_SESSION["userID"] = $result;
+            }
+            $doc = new DOMDocument();
+            $doc -> loadHTMLFile("main.html");
+            echo $doc -> saveHTML();
+        }else{
+            $doc = new DOMDocument();
+            $doc -> loadHTMLFile("login.html");
+            echo $doc -> saveHTML();
+            $alert = "<script type='text/javascript'>alert('名前かパスワードが間違っています。');</script>";
+            echo $alert;
+        }
+
     } else {
         $doc = new DOMDocument();
         $doc -> loadHTMLFile("login.html");
@@ -49,6 +67,7 @@ if (isset ($_POST["login"])) {
 if (isset ($_POST["newlogin"])) {
     $userName = $_POST['user'];
     $password = $_POST['password'];
+    $hash_password = password_hash($password,PASSWORD_DEFAULT);
     #名前が被っていないことを条件としている。
     $stmt = mysqli_prepare($link,"select count(*) from user use index(name) where name = ?");
     mysqli_stmt_bind_param($stmt, 's',$userName);
@@ -62,7 +81,7 @@ if (isset ($_POST["newlogin"])) {
         /* プリペアドステートメントを作成します */
         $st = mysqli_prepare($link, "INSERT INTO user(name,password) values(?,?)");
         /* マーカにパラメータをバインドします */
-        mysqli_stmt_bind_param($st, 'ss',$userName,$password);
+        mysqli_stmt_bind_param($st, 'ss',$userName,$hash_password);
         mysqli_stmt_execute($st);
         $prepare = mysqli_prepare($link,"select userID from user where name = ? ");
         mysqli_stmt_bind_param($prepare,'s',$userName);
