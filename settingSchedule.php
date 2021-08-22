@@ -27,6 +27,7 @@
         <p><?php
         foreach ($li as $content){
             foreach ($content as $content2){
+                $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                 echo $content2 . '<br />';
             }
             echo "<button name=></button><br />";
