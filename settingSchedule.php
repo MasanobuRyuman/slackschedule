@@ -30,7 +30,7 @@
                 $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                 echo $content2 . '<br />';
             }
-            echo "<button name=></button><br />";
+            echo "<button name="back">戻る</button><br />";
         }
         ?></p>
 
