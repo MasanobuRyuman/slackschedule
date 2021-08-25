@@ -1,5 +1,3 @@
-
-
 function loginClick(){
     fastId = document.getElementById("attention");
     fastId.setAttribute(name,"loginIn")
@@ -113,6 +111,6 @@ document.addEventListener("click", function(e) {
 
 
     }
-}
+})
 
 showCalendar(year, month)

@@ -116,6 +116,7 @@ if (isset($_POST["scheduleSetting"])){
     $schedule_date_complete = $_SESSION['date'] ." " . "00:00";
     $_SESSION['serch_date_start'] = date('Y-m-d H:i',strtotime($schedule_date_complete));
     $_SESSION["serch_date_end"] = date('Y-m-d H:i',strtotime($schedule_date_complete."+". 23 ."hour"."+". 59 ."minutes"));
+    /*
     $stmt = mysqli_prepare($link,"select count(*) from contentTime where scheduleTime between ? and ?");
     mysqli_stmt_bind_param($stmt,"ss",$_SESSION['serch_date_start'],$_SESSION["serch_date_end"]);
 
@@ -124,12 +125,15 @@ if (isset($_POST["scheduleSetting"])){
     while (mysqli_stmt_fetch($stmt)){
         $count = $cou;
     }
+
     //すでに入っていたら編集へ
     if ($count >= 1){
         require "settingSchedule.php";
     }else{
         require "registration.php";
     }
+    */
+    require "registration.php";
 }
 
 #予定入力ページから「決定」が押された後

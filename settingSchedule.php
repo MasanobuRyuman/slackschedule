@@ -16,7 +16,7 @@
         $link = mysqli_connect('localhost:8889', 'root', 'root', 'mydb');
         $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and scheduleTime between ? and ?");
         mysqli_stmt_bind_param($stmt,"sss",$_SESSION["userID"],$_SESSION["serch_date_start"],$_SESSION["serch_date_end"]);
-        echo $_SESSION["serch_date_strat"];
+        echo $_SESSION["serch_date_start"];
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt,$result,$result2,$result3);
         while (mysqli_stmt_fetch($stmt)){
@@ -30,7 +30,7 @@
                 $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                 echo $content2 . '<br />';
             }
-            echo "<button name="back">戻る</button><br />";
+            echo "<button name='b'>編集</button><br />";
         }
         ?></p>
 
