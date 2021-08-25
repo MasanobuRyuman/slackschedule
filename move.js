@@ -1,3 +1,5 @@
+
+
 function loginClick(){
     fastId = document.getElementById("attention");
     fastId.setAttribute(name,"loginIn")
