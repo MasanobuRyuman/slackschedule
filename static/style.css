@@ -104,7 +104,13 @@ input, select {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
-
+.apriname {
+    color: white;
+}
+.example {
+    color: #F80206;
+}
+/*main.html*/
 #calendar {
     display: flex;
     flex-wrap: wrap;
@@ -148,4 +154,8 @@ Resources
 #ddd.h1{
     color:white;
     margin:auto;
+}
+
+.name {
+    font-size: 90px;
 }
