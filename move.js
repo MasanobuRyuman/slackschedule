@@ -114,3 +114,9 @@ document.addEventListener("click", function(e) {
 })
 
 showCalendar(year, month)
+
+document.getElementById("editButton").addEventListener('click',function(){
+    var element = document.getElementById( this.class ) ;
+    document.getElementById( "scheduleKey" ).value = element ;
+    console.log(element);
+})
