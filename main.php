@@ -176,6 +176,11 @@ if (isset($_POST["back"])){
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
 }
+#registration.phpから編集が押された
+if (isset($_POST["editButton"])){
+    $_SESSION["edit_schedule_date"] = $_POST["scheduleKey"];
+    require "editSchedule.php";
+}
 
 #main.htmlからslackの設定が押されたら
 if (isset ($_POST["slackSetting"])){
@@ -249,6 +254,7 @@ if (isset ($_POST["changeDecsion"])){
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
 }
+
 
 
 $close_flag = mysqli_close($link);

@@ -45,7 +45,7 @@
                 foreach ($content as $content2){
                     $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                     echo $content2 . '<br />';
-                    echo "<button class='$content2' id='editButton'>編集</button><br />";
+                    echo "<button name='editButton' class='$content2' id='editButton'>編集</button><br />";
                 }
             }
             ?></p>
