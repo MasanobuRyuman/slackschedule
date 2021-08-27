@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
+    <p>gaga</p>
     <?php
     $stmt = mysqli_prepare($link,"select scheduleTime,beforeTime from contentTime where userID=? and content = ? and scheduleTime between ? and ?");
     mysqli_stmt_bind_param($stmt,"ssss",$_SESSION["userID"],$schedule_date,$_SESSION["serch_date_start"],$_SESSION["serch_date_end"]);

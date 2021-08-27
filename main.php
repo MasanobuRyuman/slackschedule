@@ -172,13 +172,16 @@ if (isset ($_POST["contentfield"])){
 
 #registration.phpから戻るが押されたら
 if (isset($_POST["back"])){
+    echo "kita";
     $doc = new DOMDocument();
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
 }
 #registration.phpから編集が押された
-if (isset($_POST["editButton"])){
+if (isset($_POST['editButton'])){
+    echo "lta";
     $_SESSION["edit_schedule_date"] = $_POST["scheduleKey"];
+    echo $_SESSION["edit_schedule_date"];
     require "editSchedule.php";
 }
 
