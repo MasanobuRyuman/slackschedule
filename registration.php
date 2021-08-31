@@ -39,17 +39,23 @@
             array_push($li,$temp);
         }
         ?>
-        <form method="POST" action="main.php">
-            <p><?php
-            foreach ($li as $content){
-                foreach ($content as $content2){
-                    $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
-                    echo $content2 . '<br />';
-                    echo "<button name='editButton' class='$content2' id='editButton'>編集</button><br />";
-                }
+        <p><form method = "POST" action="main.php"><?php
+        foreach ($li as $content){
+            foreach ($content as $content2){
+                $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
+                echo $content2 . '<br />';
+                echo "<button class='$content2' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
             }
-            ?></p>
-            <input name="scheduleKey" id="scheduleKey" type="hidden" value="{{scheduleKey}}">
+        }
+        echo "<input name='scheduleKey' id='scheduleKey' type='hidden'å>";
+        ?></form></p>
+
+        <form method="POST" action="main.php">
+            <textarea name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
+            <p>投稿時刻</p>
+            <input type = "time" name = "time" id = "time" ></input><br>
+            <input type = "time" name = "beforeTime" id = "beforeTime"></input><br>
+            <input name = "schedule" type = "submit" vaule = "決定"></input>
         </form>
         <form method="POST" action="main.php">
             <input name = "back" type = "submit" value = "戻る"></input>
