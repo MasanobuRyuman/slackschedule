@@ -179,9 +179,7 @@ if (isset($_POST["back"])){
 }
 #registration.phpから編集が押された
 if (isset($_POST['editButton'])){
-    echo "lta";
     $_SESSION["edit_schedule_date"] = $_POST["scheduleKey"];
-    echo $_SESSION["edit_schedule_date"];
     require "editSchedule.php";
 }
 

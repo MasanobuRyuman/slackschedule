@@ -39,15 +39,15 @@
             array_push($li,$temp);
         }
         ?>
-        <p><form method="POST" action="main.php"><?php
+        <p><form method = "POST" action="main.php"><?php
         foreach ($li as $content){
             foreach ($content as $content2){
                 $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                 echo $content2 . '<br />';
-                echo "<button class='$content2' name='editButton' id='editButton'>編集</button><br />";
+                echo "<button class='$content2' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
             }
         }
-        echo "<input name='scheduleKey' id='scheduleKey' type='hidden'>";
+        echo "<input name='scheduleKey' id='scheduleKey' type='hidden'å>";
         ?></form></p>
 
         <form method="POST" action="main.php">
