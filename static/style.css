@@ -155,3 +155,15 @@ Resources
     color:white;
     margin:auto;
 }
+/*ヘッダー部分*/
+.hedder{
+    background-color: blue;
+}
+.titleNmme {
+    font-size: 45px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/*最初のページ*/
