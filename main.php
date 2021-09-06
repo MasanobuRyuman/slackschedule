@@ -180,6 +180,7 @@ if (isset($_POST["back"])){
 #registration.phpから編集が押された
 if (isset($_POST['editButton'])){
     $_SESSION["edit_schedule_date"] = $_POST["scheduleKey"];
+    //echo $_SESSION["edit_schedule_date"];
     require "editSchedule.php";
 }
 
@@ -256,6 +257,17 @@ if (isset ($_POST["changeDecsion"])){
     echo $doc -> saveHTML();
 }
 
-
+#editSchedlue.phpから「決定」が押されたら
+if (isset ($_POST["schedule_decision"])){
+    $edit_content = $_POST["edit_content"];
+    $edit_time = $_POST["edit_time"];
+    $edit_after_time = $_POST["edit_after_time"];
+    $stmt = mysqli_prepare($link,"update contentTime set content = ? , scheduleTime = ? , beforeTime = ? where userID = ? and content = ? and scheduleTime = ?");
+    mysqli_stmt_bind_param($stmt,"sssiss",$edit_content,$edit_time,$edit_after_time,$_SESSION["userID"],$_SESSION["before_content"],$_SESSION["before_date"]);
+    mysqli_stmt_execute($stmt);
+    $doc = new DOMDocument();
+    $doc -> loadHTMLFile("main.html");
+    echo $doc -> saveHTML();
+}
 
 $close_flag = mysqli_close($link);

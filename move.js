@@ -96,9 +96,9 @@ function moveCalendar(e) {
 }
 
 //前に戻る
-//document.querySelector('#prev').addEventListener('click', moveCalendar)
+document.querySelector('#prev').addEventListener('click', moveCalendar)
 //次の月
-//document.querySelector('#next').addEventListener('click', moveCalendar)
+document.querySelector('#next').addEventListener('click', moveCalendar)
 
 //カレンダーの日付が押されたら
 document.addEventListener("click", function(e) {
@@ -113,7 +113,7 @@ document.addEventListener("click", function(e) {
     }
 })
 
-//showCalendar(year, month)
+showCalendar(year, month)
 
 function edit(e){
     var e = e || window.event;
