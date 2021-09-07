@@ -155,9 +155,14 @@ Resources
     color:white;
     margin:auto;
 }
+
+body {
+    margin-top: 0;
+}
 /*ヘッダー部分*/
 .hedder{
     background-color: blue;
+    margin-top:0;
 }
 .titleNmme {
     font-size: 45px;
