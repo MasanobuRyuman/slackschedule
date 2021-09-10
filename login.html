@@ -10,18 +10,20 @@
 
 <body>
 
-    <p>slack</p>
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
 
     <div name="wrap">
         <form method="POST" action="main.php">
             <p id="attention"></p>
-            <p class = "name">名前</p>
-            <input name="user">
-            <p>パスワード</p>
-            <input tyoe="text" name="password">
-            <button name="login">ログイン</button>
-            <button name="newlogin">新規登録</button>
-            <button name="formBack">戻る</button>
+            <p class = "user_name">名前</p>
+            <input class="name_input" name="user">
+            <p class = "password">パスワード</p>
+            <input class="password_input" tyoe="text" name="password">
+            <button class="login_botton" name="login">ログイン</button>
+            <button class="newlogin_botton" name="newlogin">新規登録</button>
+            <button class="formBack_botton" name="formBack">戻る</button>
         </form>
     </div>
 </body>

@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>カレンダー</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
-    <dif class="hedder">
-        <h1 class="titleNmme">MySchedlue</h1>
-    </dif>
-    <p>このwebアプリでは、自分のスケジュールを登録すると予定をslackに自動で通知してくれます。</p>
-    <p>まずは、ログイン・新規登録をしてください。</p>
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
+    <p class="overview">このwebアプリでは、自分のスケジュールを登録すると予定をslackに自動で通知してくれます。</p>
+    <p class="overview">まずは、ログイン・新規登録をしてください。</p>
     <form method="POST" action="main.php">
-        <button name="registration" onclick="loginClick()" id="registration">ログインor新規登録</button>
+        <button class="login_or_register" name="registration" onclick="loginClick()" id="registration">ログインor新規登録</button>
     </form>
 
     <div name="wrap">
