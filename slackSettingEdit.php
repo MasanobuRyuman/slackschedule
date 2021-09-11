@@ -9,8 +9,11 @@
 </head>
 
 <body>
-    <p>token</p>
-    <p><?php
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
+    <p class="token">token</p>
+    <p class="token_setting"><?php
     $link = mysqli_connect('localhost:8889', 'root', 'root', 'mydb');
     $stmt = mysqli_prepare($link,"select token from slackSettings where userID=?");
     mysqli_stmt_bind_param($stmt,"i",$_SESSION["userID"]);
@@ -21,8 +24,8 @@
         echo $token;
     }
     ?></p>
-    <p>channel名<p>
-    <p><?php
+    <p class="channel_name">channel名<p>
+    <p class="channel_setting"><?php
     $link = mysqli_connect('localhost:8889','root','root','mydb');
     $stmt = mysqli_prepare($link,"select channelName from slackSettings where userID = ?");
     mysqli_stmt_bind_param($stmt,"i",$_SESSION["userID"]);
@@ -34,10 +37,10 @@
     }
     ?></p>
     <form method="POST" action="slackEdit.html">
-        <button name = "slackChange">変更</button>
+        <button class="slack_change" name = "slackChange">変更</button>
     </form>
     <form method="POST" action="main.php">
-        <button name = "slackSettingEditBack">戻る</button>
+        <button class="slack_back" name="slackSettingEditBack">戻る</button>
     </form>
 
 </body>
