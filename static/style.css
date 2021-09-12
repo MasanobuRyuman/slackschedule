@@ -167,3 +167,83 @@ body {
 	margin-top: 20px;
 	margin-left: 80px;
 }
+
+/*main画面*/
+.slack_setting {
+	width:90px;
+	display: block;
+	margin-left: 80%;
+	margin-top: 10px;
+}
+
+.move_month {
+	display: inline-block;
+	width:900px;
+	text-align: center;
+
+}
+
+.before_month {
+	display: inline-block;
+	text-align: center;
+}
+
+.next_month {
+	margin:auto;
+}
+
+.calender_area {
+	margin: auto;
+}
+
+.calender {
+	margin:auto;
+}
+
+.table {
+	text-align: center;
+}
+
+/*slackSetting*/
+.token {
+	font-size: 30px;
+	margin-top:30px;
+	margin-left:40px;
+}
+
+.token_setting {
+	font-size: 20px;
+	margin-top:5px;
+	margin-left:50px;
+}
+
+.channel_name {
+	font-size: 30px;
+	margin-top:10px;
+	margin-left:40px;
+}
+
+.channel_setting {
+	font-size: 20px;
+	margin-top:5px;
+	margin-left:50px;
+}
+
+.slack_change{
+	display: block;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+.slack_back {
+	display: block;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+/*予定ページ*/
+.date {
+	font-size: 40px;
+	margin-top:30px;
+	margin-left: 30px;
+}
