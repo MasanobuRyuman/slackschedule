@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <header>
-        <h1>Slackカレンダ</h1>
-    </header>
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
     <div name="wrap">
-        <h1 name="date">日付</h1>
+        <h1 name="date" class="date">日付</h1>
         <?php
         //echo $_SESSION['date'];
         $dom = new DOMDocument();
@@ -30,7 +30,7 @@
         $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and scheduleTime between ? and ?");
         mysqli_stmt_bind_param($stmt,"sss",$_SESSION["userID"],$_SESSION["serch_date_start"],$_SESSION["serch_date_end"]);
         echo $_SESSION["serch_date_start"];
-        echo "<p>予定内容</p>";
+        echo "<p class='schedule_content'>予定内容</p>";
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt,$result,$result2,$result3);
         while (mysqli_stmt_fetch($stmt)){

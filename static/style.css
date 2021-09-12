@@ -177,8 +177,31 @@ body {
 }
 
 .move_month {
-	display: block;
-	margin:10px auto;
+	display: inline-block;
+	width:900px;
+	text-align: center;
+
+}
+
+.before_month {
+	display: inline-block;
+	text-align: center;
+}
+
+.next_month {
+	margin:auto;
+}
+
+.calender_area {
+	margin: auto;
+}
+
+.calender {
+	margin:auto;
+}
+
+.table {
+	text-align: center;
 }
 
 /*slackSetting*/
@@ -216,4 +239,11 @@ body {
 	display: block;
 	margin-top: 10px;
 	margin-left: 40px;
+}
+
+/*予定ページ*/
+.date {
+	font-size: 40px;
+	margin-top:30px;
+	margin-left: 30px;
 }
