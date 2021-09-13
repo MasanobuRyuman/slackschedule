@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
     <div class="container">
         <h1 class="text-center">予定していること</h1>
         <?php
