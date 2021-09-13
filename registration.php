@@ -49,14 +49,14 @@
                     $schedule_content = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                 }
                 $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
-                echo $content2 . '<br />';
+                echo $content2. '<br />';
                 $cou += 1;
             }
             echo "<button class='$schedule_content' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
         }
         echo "<input name='scheduleKey' id='scheduleKey' type='hidden'>";
         ?></form></p>
-
+        <p>予定追加</p>
         <form method="POST" action="main.php">
             <textarea name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
             <p>投稿時刻</p>
