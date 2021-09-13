@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
+    <div class="hedder">
+        <h1 class="titleName">MySchedlue</h1>
+    </div>
     <form method="POST" action="main.php">
     <?php
     $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and content = ? and scheduleTime between ? and ?");
