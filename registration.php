@@ -41,11 +41,12 @@
         }
         ?>
 
-
+        <p class="schedule_list">予定一覧</p>
         <p><form method = "POST" action="main.php"><?php
         foreach ($li as $content){
             $schedule_content = "temp";
             $cou = 0;
+            echo "<div class='box'>";
             echo "<p class='schedule_content'>予定内容</p>";
             foreach ($content as $content2){
                 if ($cou == 0){
@@ -65,21 +66,23 @@
 
                 $cou += 1;
             }
+            echo "</div>";
             $cou = 0;
             echo "<button class='$schedule_content' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
         }
         echo "<input name='scheduleKey' id='scheduleKey' type='hidden'>";
         ?></form></p>
-        <p>予定追加</p>
+        <p class="add_schedule">予定追加</p>
         <form method="POST" action="main.php">
-            <textarea name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
-            <p>投稿時刻</p>
-            <input type = "time" name = "time" id = "time" ></input><br>
-            <input type = "time" name = "beforeTime" id = "beforeTime"></input><br>
-            <input name = "schedule" type = "submit" vaule = "決定"></input>
+            <textarea class="content_input" name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
+            <p class="schedule_time">予定時刻</p>
+            <input class="time_input" type="time" name="time" id="time" ></input>
+            <p class="notice_name">通知時刻</p>
+            <input class="beforeTime_input" type = "time" name = "beforeTime" id = "beforeTime"></input><br>
+            <input class="schedule_submit" name = "schedule" type = "submit" vaule = "決定"></input>
         </form>
         <form method="POST" action="main.php">
-            <input name = "back" type = "submit" value = "戻る"></input>
+            <input class="registrasion_back" name="back" type="submit" value="戻る"></input>
         </form>
     </div>
     <footer>
