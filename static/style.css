@@ -245,5 +245,73 @@ body {
 .date {
 	font-size: 40px;
 	margin-top:30px;
-	margin-left: 30px;
+	margin-left: 300px;
+}
+.box{
+	width: 500px;
+	height: 100px;
+	border: solid 1px #000;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.schedule_day {
+	font-size: 25px;
+	margin-top:10px;
+	margin-left: 300px;
+}
+
+.schedule_list {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+#editButton {
+	font-size: 15px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.add_schedule {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.content_input {
+	margin-top:10px;
+	margin-left: 300px;
+}
+
+.time_input {
+	margin-top:10px;
+	margin-left: 300px;
+}
+
+.schedule_time {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.notice_name {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.beforeTime_input {
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.schedule_submit {
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.registrasion_back {
+	margin-top: 10px;
+	margin-left: 300px;
 }
