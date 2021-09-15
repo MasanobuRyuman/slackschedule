@@ -156,8 +156,8 @@ if (isset ($_POST["contentfield"])){
         $beforeMinutes = substr($before_Time,3);
         #通知を送る時間を作っている。
         $before = date('Y/m/d H:i',strtotime($schedule . "-" . $beforeHour . "hour" . "-" . $beforeMinutes . "minutes"));
-        echo $before;
-        echo $schedule;
+        //echo $before;
+        //echo $schedule;
         /* プリペアドステートメントを作成します */
         $stmt = mysqli_prepare($link, "INSERT INTO contentTime(userID,content,scheduleTime,beforeTime,status) values(?,?,?,?,1)");
         /* マーカにパラメータをバインドします */
@@ -172,7 +172,7 @@ if (isset ($_POST["contentfield"])){
 
 #registration.phpから戻るが押されたら
 if (isset($_POST["back"])){
-    echo "kita";
+    //echo "kita";
     $doc = new DOMDocument();
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
@@ -249,9 +249,9 @@ if (isset ($_POST["changeDecsion"])){
     $stmt = mysqli_prepare($link,"update slackSettings set token = ? , channelName = ? where userID = ?");
     mysqli_stmt_bind_param($stmt,"ssi",$changeToken,$changeChannelName,$_SESSION["userID"]);
     mysqli_stmt_execute($stmt);
-    echo $changeToken;
-    echo $changeChannelName;
-    echo $_SESSION["userID"];
+    //echo $changeToken;
+    //echo $changeChannelName;
+    //echo $_SESSION["userID"];
     $doc = new DOMDocument();
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
@@ -268,6 +268,12 @@ if (isset ($_POST["schedule_decision"])){
     $doc = new DOMDocument();
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
+}
+
+#editSchedlue.phpから「削除」が押されたら
+if (isset ($_POST["schedule_delete"])){
+    $stmt = muysqli_prepare($link,"delete from contentTime where userID = ? and content = ? and scheduleTiem = ?");
+    mysqli_stmt_bind_param(Rstmt,"iss",$_SESSION["userID"],$_SESSION["before_content"],$_SESSION["before_date"]);
 }
 
 $close_flag = mysqli_close($link);

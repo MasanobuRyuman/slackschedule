@@ -177,10 +177,8 @@ body {
 }
 
 .move_month {
-	display: inline-block;
-	width:900px;
-	text-align: center;
-
+	width:300px;
+    margin:auto;
 }
 
 .before_month {
@@ -193,6 +191,7 @@ body {
 }
 
 .calender_area {
+	width:300px;
 	margin: auto;
 }
 
@@ -249,7 +248,7 @@ body {
 }
 .box{
 	width: 500px;
-	height: 100px;
+	height: 150px;
 	border: solid 1px #000;
 	margin-top: 10px;
 	margin-left: 300px;
@@ -265,6 +264,7 @@ body {
 	font-size: 25px;
 	margin-top: 10px;
 	margin-left: 300px;
+	color:blue;
 }
 
 #editButton {
@@ -277,6 +277,7 @@ body {
 	font-size: 25px;
 	margin-top: 10px;
 	margin-left: 300px;
+	color:blue;
 }
 
 .content_input {
