@@ -13,8 +13,11 @@
     </div>
     <form method="POST" action="main.php">
     <?php
-    $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and content = ? and scheduleTime between ? and ?");
-    mysqli_stmt_bind_param($stmt,"ssss",$_SESSION["userID"],$_SESSION["edit_schedule_date"],$_SESSION["serch_date_start"],$_SESSION["serch_date_end"]);
+    $_SESSION["edit_schedule_time"] = mb_substr($_SESSION["edit_schedule_date"],0,19);
+    $_SESSION["edit_schedule_content"] = mb_substr($_SESSION["edit_schedule_date"],20);
+
+    $stmt = mysqli_prepare($link,"select content,scheduleTime,beforeTime from contentTime where userID=? and content = ? and scheduleTime = ?");
+    mysqli_stmt_bind_param($stmt,"sss",$_SESSION["userID"],$_SESSION["edit_schedule_content"],$_SESSION["edit_schedule_time"]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt,$result,$result2,$result3);
     while (mysqli_stmt_fetch($stmt)){
@@ -35,7 +38,6 @@
         echo "<button name='schedule_decision'>決定</button>";
         echo "<button name='schedule_delete'>削除</button>";
     }
-
     ?>
    </form>
 </body>

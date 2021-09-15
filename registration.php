@@ -41,7 +41,6 @@
         }
         ?>
 
-
         <p><form method = "POST" action="main.php"><?php
         $fast = True;
         foreach ($li as $content){
@@ -49,7 +48,8 @@
                 $fast = False;
                 echo "<p class='schedule_list'>予定一覧</p>";
             }
-            $schedule_content = "temp";
+            $schedule_content = "";
+            $schedule_identification_time = "";
             $cou = 0;
             echo "<div class='box'>";
             echo "<p class='schedule_content'>予定内容</p>";
@@ -60,6 +60,7 @@
                     echo "<p class='content'>$content2</p>";
                 }else if ($cou == 1){
                     echo "<p class='schedule_time_name'>予定時間</p>";
+                    $schedule_identification_time = $content2;
                     $hour = substr($content2,11,2);
                     $minutes = substr($content2,14,2);
                     echo "<p class='schedule_time'>$hour 時　$minutes 分</p>";
@@ -74,7 +75,7 @@
             }
             echo "</div>";
             $cou = 0;
-            echo "<button class='$schedule_content' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
+            echo "<button class='$schedule_identification_time $schedule_content' name='editButton' id='editButton' onclick='edit()'>編集</button><br />";
         }
         echo "<input name='scheduleKey' id='scheduleKey' type='hidden'>";
         ?></form></p>
