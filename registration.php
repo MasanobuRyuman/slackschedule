@@ -41,15 +41,21 @@
         }
         ?>
 
-        <p class="schedule_list">予定一覧</p>
+
         <p><form method = "POST" action="main.php"><?php
+        $fast = True;
         foreach ($li as $content){
+            if ($fast == True){
+                $fast = False;
+                echo "<p class='schedule_list'>予定一覧</p>";
+            }
             $schedule_content = "temp";
             $cou = 0;
             echo "<div class='box'>";
             echo "<p class='schedule_content'>予定内容</p>";
             foreach ($content as $content2){
                 if ($cou == 0){
+                    $schedule_content = $content2;
                     $content2 = htmlentities($content2, ENT_QUOTES, 'UTF-8');
                     echo "<p class='content'>$content2</p>";
                 }else if ($cou == 1){
@@ -76,17 +82,15 @@
         <form method="POST" action="main.php">
             <textarea class="content_input" name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
             <p class="schedule_time">予定時刻</p>
-            <input class="time_input" type="time" name="time" id="time" ></input>
+            <input class="time_input" type="time" name="time" id="time" value="00:00" ></input>
             <p class="notice_name">通知時刻</p>
-            <input class="beforeTime_input" type = "time" name = "beforeTime" id = "beforeTime"></input><br>
+            <input class="beforeTime_input" type = "time" name = "beforeTime" id = "beforeTime" value="00:00" ></input><br>
             <input class="schedule_submit" name = "schedule" type = "submit" vaule = "決定"></input>
         </form>
         <form method="POST" action="main.php">
             <input class="registrasion_back" name="back" type="submit" value="戻る"></input>
         </form>
     </div>
-    <footer>
-    </footer>
 
     <script type="text/javascript" src="move.js"></script>
 </body>

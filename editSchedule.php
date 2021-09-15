@@ -33,7 +33,9 @@
         echo "<p>通知時間</p>";
         echo "<input name='edit_after_time' type=time value='$call_time'></input>";
         echo "<button name='schedule_decision'>決定</button>";
+        echo "<button name='schedule_delete'>削除</button>";
     }
+
     ?>
    </form>
 </body>
