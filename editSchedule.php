@@ -22,8 +22,8 @@
     $call_time = mb_substr($_SESSION["before_schedule_calltime"],10,5);
     $content = $_SESSION["before_schedule_content"];
 
-    echo "<p class='edit_scheudle_day_name'>予定日</p>";
-    echo "<p class='edit_schedule_date'>$date</p>";
+    echo "<p class='edit_schedule_day_name'>予定日</p>";
+    echo "<p class='edit_schedule_day'>$date</p>";
     echo "<p class='edit_schedule_content_name'>内容</p>";
     echo "<input class='edit_schedule_content' name='edit_content' value='$content'></input>";
     echo "<p class='edit_schedule_date_name'>予定時間</p>";
@@ -32,7 +32,7 @@
     echo "<p class='edit_schedule_calltime_name'>通知時間</p>";
     echo "<input class='edit_schedule_calltime' name='edit_after_time' type=time value='$call_time'></input>";
     echo "<button class='edit_schedule_decision' name='schedule_decision'>決定</button>";
-    echo "<button class='edit_scehdule_delete' name='schedule_delete'>削除</button>";
+    echo "<button class='edit_schedule_delete' name='schedule_delete'>削除</button>";
     ?>
    </form>
 </body>
