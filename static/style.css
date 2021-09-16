@@ -177,7 +177,7 @@ body {
 }
 
 .move_month {
-	width:300px;
+	width:130px;
     margin:auto;
 }
 
@@ -191,7 +191,7 @@ body {
 }
 
 .calender_area {
-	width:300px;
+	width:1000px;
 	margin: auto;
 }
 
@@ -200,7 +200,10 @@ body {
 }
 
 .table {
-	text-align: center;
+	margin:auto;
+	margin-top: 10px;
+	width:400px;
+	height: 400px;
 }
 
 /*slackSetting*/
@@ -315,4 +318,67 @@ body {
 .registrasion_back {
 	margin-top: 10px;
 	margin-left: 300px;
+}
+
+/*予定編集ページ*/
+.edit_schedule_day_name {
+	font-size:30px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_day {
+	font-size:30px;
+	margin-top:10px;
+	margin-left: 400px;
+}
+
+.edit_schedule_content_name {
+	font-size: 30px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_content {
+	font-size:25px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_date_name {
+	font-size: 30px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_date {
+	font-size: 25px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_calltime_name {
+	font-size:30px;
+	margin-top: 10px;
+	margin-left:400px;
+}
+
+.edit_schedule_calltime {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-left: 400px;
+}
+
+.edit_schedule_decision {
+	display:block;
+	font-size: 20px;
+	margin-top:10px;
+	margin-left:400px;
+}
+
+.edit_schedule_delete {
+	display: block;
+	font-size: 20px;
+	margin-top:10px;
+	margin-left: 400px;
 }
