@@ -36,7 +36,7 @@
         echo $channelName;
     }
     ?></p>
-    <form method="POST" action="slackEdit.html">
+    <form method="POST" action="main.php">
         <button class="slack_change" name = "slackChange">変更</button>
     </form>
     <form method="POST" action="main.php">
