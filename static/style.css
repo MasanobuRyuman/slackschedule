@@ -177,7 +177,7 @@ body {
 }
 
 .move_month {
-	width:300px;
+	width:130px;
     margin:auto;
 }
 
@@ -191,7 +191,7 @@ body {
 }
 
 .calender_area {
-	width:300px;
+	width:1000px;
 	margin: auto;
 }
 
@@ -200,7 +200,10 @@ body {
 }
 
 .table {
-	text-align: center;
+	margin:auto;
+	margin-top: 10px;
+	width:400px;
+	height: 400px;
 }
 
 /*slackSetting*/
@@ -316,3 +319,5 @@ body {
 	margin-top: 10px;
 	margin-left: 300px;
 }
+
+/*予定編集ページ*/
