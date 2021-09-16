@@ -131,31 +131,31 @@ body {
 .user_name {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:100px;
+    margin-left:400px;
 }
 
 .password {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:100px;
+    margin-left:400px;
 }
 
 .name_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 80px;
+	margin-left: 400px;
 }
 
 .password_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 80px;
+	margin-left: 400px;
 }
 
 .login_botton {
 	display: inline-block;
 	margin-top:30px;
-	margin-left:80px;
+	margin-left:400px;
 }
 
 .newlogin_botton {
@@ -165,7 +165,7 @@ body {
 .formBack_botton {
 	display: block;
 	margin-top: 20px;
-	margin-left: 80px;
+	margin-left: 400px;
 }
 
 /*main画面*/
@@ -210,37 +210,51 @@ body {
 .token {
 	font-size: 30px;
 	margin-top:30px;
-	margin-left:40px;
+	margin-left:400px;
 }
 
 .token_setting {
 	font-size: 20px;
 	margin-top:5px;
-	margin-left:50px;
+	margin-left:400px;
 }
 
 .channel_name {
 	font-size: 30px;
 	margin-top:10px;
-	margin-left:40px;
+	margin-left:400px;
 }
 
 .channel_setting {
 	font-size: 20px;
 	margin-top:5px;
-	margin-left:50px;
+	margin-left:400px;
 }
 
 .slack_change{
 	display: block;
 	margin-top: 10px;
-	margin-left: 40px;
+	margin-left: 400px;
 }
 
 .slack_back {
 	display: block;
 	margin-top: 10px;
-	margin-left: 40px;
+	margin-left: 400px;
+}
+
+/*slack設定編集ページ*/
+.token_input_name {
+	font-size:30px;
+	margin-top: 10px;
+	margin-left:400px;
+}
+
+.token_input {
+	display: block;
+	font-size:30px;
+	margin-top: 10px;
+	margin-left:400px;
 }
 
 /*予定ページ*/

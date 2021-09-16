@@ -235,6 +235,11 @@ if (isset ($_POST["slackBack"])){
     echo $doc -> saveHTML();
 }
 
+#slackSettingEdit.htmlから変更が押されたら
+if (isset ($_POST["slackChange"])){
+    require "slackEdit.php";
+}
+
 #slackSettingEdit.htmlから戻るが押されたら
 if (isset ($_POST["slackSettingEditBack"])){
     $doc = new DOMDocument();
@@ -242,7 +247,7 @@ if (isset ($_POST["slackSettingEditBack"])){
     echo $doc -> saveHTML();
 }
 
-#slackSettingEdit.htmlから変更が押されたら
+#slackEdit.htmlから変更が押されたら
 if (isset ($_POST["changeDecsion"])){
     $changeToken = $_POST["changeToken"];
     $changeChannelName = $_POST["changeChannelName"];
