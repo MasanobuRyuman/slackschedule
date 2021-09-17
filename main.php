@@ -285,4 +285,12 @@ if (isset ($_POST["schedule_delete"])){
     echo $doc -> saveHTML();
 }
 
+#editschedule.phpから戻るが押されたら
+if (isset ($_POST["edit_schedule_back"])){
+    $doc = new DOMDocument();
+    $doc -> loadHTMLFile("main.html");
+    echo $doc -> saveHTML();
+}
+
+
 $close_flag = mysqli_close($link);

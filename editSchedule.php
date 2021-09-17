@@ -33,6 +33,7 @@
     echo "<input class='edit_schedule_calltime' name='edit_after_time' type=time value='$call_time'></input>";
     echo "<button class='edit_schedule_decision' name='schedule_decision'>決定</button>";
     echo "<button class='edit_schedule_delete' name='schedule_delete'>削除</button>";
+    echo "<button class='edit_schedule_back' name='edit_schedule_back'>戻る</button>";
     ?>
    </form>
 </body>
