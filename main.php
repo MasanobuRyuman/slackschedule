@@ -287,9 +287,7 @@ if (isset ($_POST["schedule_delete"])){
 
 #editschedule.phpから戻るが押されたら
 if (isset ($_POST["edit_schedule_back"])){
-    $doc = new DOMDocument();
-    $doc -> loadHTMLFile("main.html");
-    echo $doc -> saveHTML();
+    require "registration.php";
 }
 
 

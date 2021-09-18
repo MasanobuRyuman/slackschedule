@@ -271,6 +271,11 @@ body {
 	margin-left: 300px;
 }
 
+.content {
+	font-size: 25px;
+	margin-left: 20px;
+}
+
 .schedule_day {
 	font-size: 25px;
 	margin-top:10px;
@@ -310,7 +315,7 @@ body {
 .schedule_time {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 20px;
 }
 
 .notice_name {
@@ -330,6 +335,12 @@ body {
 }
 
 .registrasion_back {
+	margin-top: 10px;
+	margin-left: 300px;
+}
+
+.schedule_oclock {
+	font-size: 25px;
 	margin-top: 10px;
 	margin-left: 300px;
 }
