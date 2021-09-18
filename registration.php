@@ -84,7 +84,7 @@
         <p class="add_schedule">予定追加</p>
         <form method="POST" action="main.php">
             <textarea class="content_input" name="contentfield" id = "contentfield" cols = "30" rows = "10" placeholder = "投稿内容を入力"></textarea><br>
-            <p class="schedule_time">予定時刻</p>
+            <p class="schedule_oclock">予定時刻</p>
             <input class="time_input" type="time" name="time" id="time" value="00:00" ></input>
             <p class="notice_name">通知時刻</p>
             <input class="beforeTime_input" type = "time" name = "beforeTime" id = "beforeTime" value="00:00" ></input><br>
