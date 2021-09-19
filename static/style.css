@@ -131,46 +131,49 @@ body {
 .user_name {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:400px;
+    margin-left:450px;
 }
 
 .password {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:400px;
+    margin-left:450px;
 }
 
 .name_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .password_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .login_botton {
-	display: inline-block;
+	display: block;
 	margin-top:30px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .newlogin_botton {
-	display: inline-block;
+	display: block;
+	margin-top:10px;
+	margin-left:450px;
 }
 
 .formBack_botton {
 	display: block;
 	margin-top: 20px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 /*main画面*/
 .slack_setting {
 	width:90px;
+	float:left;
 	display: block;
 	margin-left: 80%;
 	margin-top: 10px;
@@ -206,69 +209,76 @@ body {
 	height: 400px;
 }
 
+.form_back {
+	float:left;
+	margin-top:10px;
+	width:90px;
+	margin-left: 10px;
+}
+
 /*slackSetting*/
 .token {
 	font-size: 30px;
 	margin-top:30px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .token_setting {
 	font-size: 20px;
 	margin-top:5px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .channel_name {
 	font-size: 30px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .channel_setting {
 	font-size: 20px;
 	margin-top:5px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .slack_change{
 	display: block;
 	margin-top: 10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .slack_back {
 	display: block;
 	margin-top: 10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 /*slack設定編集ページ*/
 .token_input_name {
 	font-size:30px;
 	margin-top: 10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .token_input {
 	display: block;
 	font-size:30px;
 	margin-top: 10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 /*予定ページ*/
 .date {
 	font-size: 40px;
 	margin-top:30px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 .box{
 	width: 500px;
 	height: 150px;
 	border: solid 1px #000;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .content {
@@ -279,37 +289,37 @@ body {
 .schedule_day {
 	font-size: 25px;
 	margin-top:10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .schedule_list {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 	color:blue;
 }
 
 #editButton {
 	font-size: 15px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .add_schedule {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 	color:blue;
 }
 
 .content_input {
 	margin-top:10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .time_input {
 	margin-top:10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .schedule_time {
@@ -321,96 +331,96 @@ body {
 .notice_name {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .beforeTime_input {
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .schedule_submit {
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .registrasion_back {
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 .schedule_oclock {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 300px;
+	margin-left: 450px;
 }
 
 /*予定編集ページ*/
 .edit_schedule_day_name {
 	font-size:30px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_day {
 	font-size:30px;
 	margin-top:10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .edit_schedule_content_name {
 	font-size: 30px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_content {
 	font-size:25px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_date_name {
 	font-size: 30px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_date {
 	font-size: 25px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_calltime_name {
 	font-size:30px;
 	margin-top: 10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_calltime {
 	font-size: 25px;
 	margin-top: 10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .edit_schedule_decision {
 	display:block;
 	font-size: 20px;
 	margin-top:10px;
-	margin-left:400px;
+	margin-left:450px;
 }
 
 .edit_schedule_delete {
 	display: block;
 	font-size: 20px;
 	margin-top:10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .edit_schedule_back {
 	display: block;
 	font-size: 20px;
 	margin-top:10px;
-	margin-left: 400px;
+	margin-left: 450px;
 }
