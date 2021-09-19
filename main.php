@@ -136,6 +136,13 @@ if (isset($_POST["scheduleSetting"])){
     require "registration.php";
 }
 
+#カレンダーページから「戻る」が押されたら
+if (isset($_POST["form_back"])){
+    $doc = new DOMDocument();
+    $doc -> loadHTMLFile("index.html");
+    echo $doc -> saveHTML();
+}
+
 #予定入力ページから「決定」が押された後
 if (isset ($_POST["contentfield"])){
     #予定の内容と時間と通知時間が書かれているかをチェック
