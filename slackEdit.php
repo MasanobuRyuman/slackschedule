@@ -26,12 +26,13 @@
             $token = $result;
             $channale_name = $result2;
         }
-        echo "<p>変更後のtoken</p>";
-        echo "<input name='changeToken' value='$token'></input>";
-        echo "<p>変更後のchannel名</p>";
-        echo "<input name='changeChannelName' value='$channale_name'></input>"
+        echo "<p class='token_input_name'>変更後のtoken</p>";
+        echo "<input class='token_input' name='changeToken' value='$token'></input>";
+        echo "<p class='edit_channel_name'>変更後のchannel名</p>";
+        echo "<input class='edit_channel' name='changeChannelName' value='$channale_name'></input>"
         ?>
-        <button name="changeDecsion">変更</button>
+        <button class="change_slack" name="changeDecsion">変更</button>
+        <button class="back_slack" name="back_slack">戻る</button>
     </form>
 
 </body>

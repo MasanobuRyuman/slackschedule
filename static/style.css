@@ -262,7 +262,27 @@ body {
 
 .token_input {
 	display: block;
+	font-size:15px;
+	width:300px;
+	margin-top: 10px;
+	margin-left:450px;
+}
+
+.edit_channel_name {
 	font-size:30px;
+	margin-top: 10px;
+	margin-left:450px;
+}
+
+.edit_channel {
+	display: block;
+	font-size:15px;
+	width:300px;
+	margin-top: 10px;
+	margin-left:450px;
+}
+
+.change_slack {
 	margin-top: 10px;
 	margin-left:450px;
 }
