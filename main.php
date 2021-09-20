@@ -205,9 +205,7 @@ if (isset ($_POST["slackSetting"])){
     if ($existence >= 1){
         require "slackSettingEdit.php";
     }else{
-        $doc = new DOMDocument();
-        $doc -> loadHTMLFile("slacksetting.html");
-        echo $doc -> saveHTML();
+        require "slackSettingEdit.php";
     }
 }
 
@@ -258,12 +256,38 @@ if (isset ($_POST["slackSettingEditBack"])){
 if (isset ($_POST["changeDecsion"])){
     $changeToken = $_POST["changeToken"];
     $changeChannelName = $_POST["changeChannelName"];
-    $stmt = mysqli_prepare($link,"update slackSettings set token = ? , channelName = ? where userID = ?");
-    mysqli_stmt_bind_param($stmt,"ssi",$changeToken,$changeChannelName,$_SESSION["userID"]);
+    $stmt = mysqli_prepare($link,"select count(*) from slackSettings use index(userID) where userID=?");
+    mysqli_stmt_bind_param($stmt, 'i',$_SESSION["userID"],);
     mysqli_stmt_execute($stmt);
-    //echo $changeToken;
-    //echo $changeChannelName;
-    //echo $_SESSION["userID"];
+    mysqli_stmt_bind_result($stmt,$col);
+    $existence = 0;
+    while (mysqli_stmt_fetch($stmt)){
+        $existence=$col;
+    }
+    if ($existence == 0){
+        $stmt = mysqli_prepare($link, "INSERT INTO slackSettings(userID,token,channelName) values(?,?,?)");
+        /* マーカにパラメータをバインドします */
+        mysqli_stmt_bind_param($stmt,'iss',$_SESSION["userID"],$changeToken,$changeChannelName);
+        mysqli_stmt_execute($stmt);
+        print(mysqli_error($link));
+        $doc = new DOMDocument();
+        $doc -> loadHTMLFile("main.html");
+        echo $doc -> saveHTML();
+    }else{
+        $stmt = mysqli_prepare($link,"update slackSettings set token = ? , channelName = ? where userID = ?");
+        mysqli_stmt_bind_param($stmt,"ssi",$changeToken,$changeChannelName,$_SESSION["userID"]);
+        mysqli_stmt_execute($stmt);
+        //echo $changeToken;
+        //echo $changeChannelName;
+        //echo $_SESSION["userID"];
+        $doc = new DOMDocument();
+        $doc -> loadHTMLFile("main.html");
+        echo $doc -> saveHTML();
+    }
+}
+
+#slackEditから戻るが押されたら
+if (isset($_POST["back_slack"])){
     $doc = new DOMDocument();
     $doc -> loadHTMLFile("main.html");
     echo $doc -> saveHTML();
@@ -274,6 +298,7 @@ if (isset ($_POST["schedule_decision"])){
     $edit_content = $_POST["edit_content"];
     $edit_time = $_POST["edit_time"];
     $edit_after_time = $_POST["edit_after_time"];
+
     $stmt = mysqli_prepare($link,"update contentTime set content = ? , scheduleTime = ? , beforeTime = ? where userID = ? and content = ? and scheduleTime = ?");
     mysqli_stmt_bind_param($stmt,"sssiss",$edit_content,$edit_time,$edit_after_time,$_SESSION["userID"],$_SESSION["before_content"],$_SESSION["before_date"]);
     mysqli_stmt_execute($stmt);
