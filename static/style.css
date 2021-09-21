@@ -117,12 +117,12 @@ body {
 .overview {
     font-size: 30px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 .login_or_register {
     display: block;
-    margin:30px auto;
+    margin:50px auto;
     padding:20px;
     font-size: 20px;
 }
@@ -194,7 +194,7 @@ body {
 }
 
 .calender_area {
-	width:1000px;
+	width:850px;
 	margin: auto;
 }
 
@@ -221,6 +221,7 @@ body {
 	font-size: 30px;
 	margin-top:30px;
 	margin-left:450px;
+	color:blue;
 }
 
 .token_setting {
@@ -233,6 +234,7 @@ body {
 	font-size: 30px;
 	margin-top:10px;
 	margin-left:450px;
+	color:blue;
 }
 
 .channel_setting {
@@ -352,6 +354,7 @@ body {
 	font-size: 25px;
 	margin-top: 10px;
 	margin-left: 450px;
+	color:blue;
 }
 
 .beforeTime_input {
@@ -373,6 +376,7 @@ body {
 	font-size: 25px;
 	margin-top: 10px;
 	margin-left: 450px;
+	color:blue;
 }
 
 /*予定編集ページ*/
@@ -380,6 +384,7 @@ body {
 	font-size:30px;
 	margin-top:10px;
 	margin-left:450px;
+	color:blue;
 }
 
 .edit_schedule_day {
@@ -392,6 +397,7 @@ body {
 	font-size: 30px;
 	margin-top:10px;
 	margin-left:450px;
+	color: blue;
 }
 
 .edit_schedule_content {
@@ -404,6 +410,7 @@ body {
 	font-size: 30px;
 	margin-top:10px;
 	margin-left:450px;
+	color:blue;
 }
 
 .edit_schedule_date {
@@ -416,6 +423,7 @@ body {
 	font-size:30px;
 	margin-top: 10px;
 	margin-left:450px;
+	color:blue;
 }
 
 .edit_schedule_calltime {
