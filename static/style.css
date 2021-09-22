@@ -258,34 +258,36 @@ body {
 /*slack設定編集ページ*/
 .token_input_name {
 	font-size:30px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left:450px;
+	color:blue;
 }
 
 .token_input {
 	display: block;
 	font-size:15px;
 	width:300px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left:450px;
 }
 
 .edit_channel_name {
 	font-size:30px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left:450px;
+	color:blue;
 }
 
 .edit_channel {
 	display: block;
 	font-size:15px;
 	width:300px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left:450px;
 }
 
 .change_slack {
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left:450px;
 }
 
@@ -294,6 +296,7 @@ body {
 	font-size: 40px;
 	margin-top:30px;
 	margin-left: 450px;
+	color:blue;
 }
 .box{
 	width: 500px;
