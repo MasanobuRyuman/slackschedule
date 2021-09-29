@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 
-<body>
-    <div class="hedder">
-        <h1 class="titleName">MySchedlue</h1>
-    </div>
+<body class="settingSchedule_page">
+
     <div class="container">
         <h1 class="text-center">予定していること</h1>
         <?php

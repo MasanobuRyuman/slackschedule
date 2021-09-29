@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 
-<body>
-    <div class="hedder">
-        <h1 class="titleName">MySchedlue</h1>
-    </div>
-    <p class="overview">このwebアプリでは、自分のスケジュールを登録すると予定をslackに自動で通知してくれます。</p>
-    <p class="overview">まずは、ログイン・新規登録をしてください。</p>
-    <form method="POST" action="main.php">
-        <button class="login_or_register" name="registration" onclick="loginClick()" id="registration">ログインor新規登録</button>
-    </form>
+<body class="index_page">
+    <div class="index_backgraund">
+        <form method="POST" action="main.php">
+            <button class="login_or_register" name="registration" onclick="loginClick()" id="registration">ログインor新規登録</button>
+        </form>
+        <h1 class="overview">スケジュールを管理を<br>助けます</h1>
 
-    <div name="wrap">
+        <div name="wrap">
 
+        </div>
     </div>
+
 
 </body>
 <script type="text/javascript" src="move.js"></script>

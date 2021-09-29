@@ -7,10 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
-<body>
-    <div class="hedder">
-        <h1 class="titleName">MySchedlue</h1>
-    </div>
+<body class="editSchedlue_page">
+
     <form method="POST" action="main.php">
     <?php
     $_SESSION["before_schedule_time"] = mb_substr($_SESSION["edit_schedule_date"],0,19);

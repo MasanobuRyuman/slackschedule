@@ -7,10 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
-<body>
-    <div class="hedder">
-        <h1 class="titleName">MySchedlue</h1>
-    </div>
+<body class="registration_page">>
     <div name="wrap">
         <h1 name="date" class="date">日付</h1>
         <?php
