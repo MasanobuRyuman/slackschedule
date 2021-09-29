@@ -113,64 +113,97 @@ body {
     text-align: center;
     padding-top:13px;
 }
-/*formのページ*/
+/*indexのページ*/
 .overview {
-    font-size: 30px;
-    text-align: center;
-    padding-top: 50px;
+    font-size: 60px;
+	font-weight: bold;
+	opacity: 80%;
+	color:white;
+    margin-left: 15%;
+    padding-top: 3%;
 }
 
 .login_or_register {
     display: block;
-    margin:50px auto;
-    padding:20px;
-    font-size: 20px;
+	opacity: 0.7;
+	border-bottom: 5px solid white;
+    margin-top:3%;
+	margin-left:80%;
+    font-size: 5px;
+	padding:20px;
+}
+
+.index_page {
+	background-image: url("pexels-the-lazy-artist-gallery-999267.jpg");
+	background-size: cover;
 }
 
 /*ログイン・新規登録ページ*/
+.form_page {
+	background-image: url("pexels-jess-loiterton-4783904.jpg");
+}
+
+.form_frame {
+	padding: 0.5em 1em;
+    width:400px;
+	height: 500px;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+	opacity: 0.5;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+	margin:auto;
+	margin-top:9%;
+}
 .user_name {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:450px;
+    margin-left:2px;
+	opacity:1.0;
 }
 
 .password {
     font-size: 30px;
     margin-top: 50px;
-    margin-left:450px;
+    margin-left:2px;
 }
 
 .name_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 450px;
+	margin-left: 2px;
 }
 
 .password_input {
 	width: 300px;
 	margin-top:30px;
-	margin-left: 450px;
+	margin-left: 2px;
 }
 
 .login_botton {
 	display: block;
 	margin-top:30px;
-	margin-left:450px;
+	margin-left:2px;
 }
 
 .newlogin_botton {
 	display: block;
 	margin-top:10px;
-	margin-left:450px;
+	margin-left:2px;
 }
 
 .formBack_botton {
 	display: block;
 	margin-top: 20px;
-	margin-left: 450px;
+	margin-left: 2px;
 }
 
 /*main画面*/
+.main_page {
+	background-color:#F2F2F2;
+}
+
 .slack_setting {
 	width:90px;
 	float:left;
@@ -217,49 +250,87 @@ body {
 }
 
 /*slackSetting*/
+.slackSettingEdit_page {
+	background-color: #F2F2F2;
+}
+
+.slack_setting_frame {
+	padding: 0.5em 1em;
+    width:400px;
+	height: 500px;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+	opacity: 0.5;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+	margin:auto;
+	margin-top:9%;
+}
+
 .token {
 	font-size: 30px;
 	margin-top:30px;
-	margin-left:450px;
+	margin-left:2px;
 	color:blue;
 }
 
 .token_setting {
 	font-size: 20px;
-	margin-top:5px;
-	margin-left:450px;
+	margin-top:15px;
+	margin-left:2px;
 }
 
 .channel_name {
 	font-size: 30px;
-	margin-top:10px;
-	margin-left:450px;
+	margin-top:15px;
+	margin-left:2px;
 	color:blue;
 }
 
 .channel_setting {
 	font-size: 20px;
-	margin-top:5px;
-	margin-left:450px;
+	margin-top:15px;
+	margin-left:2px;
 }
 
 .slack_change{
 	display: block;
-	margin-top: 10px;
-	margin-left: 450px;
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 2px;
 }
 
 .slack_back {
 	display: block;
-	margin-top: 10px;
-	margin-left: 450px;
+	font-size: 20px;
+	margin-top: 20px;
+	margin-left: 2px;
 }
 
 /*slack設定編集ページ*/
+.slackEdit_page {
+	background-color:#F2F2F2;
+}
+
+.slackEdit_frame {
+	padding: 0.5em 1em;
+    width:400px;
+	height: 500px;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+	opacity: 0.5;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+	margin:auto;
+	margin-top:9%;
+}
+
 .token_input_name {
 	font-size:30px;
 	margin-top: 20px;
-	margin-left:450px;
+	margin-left:5px;
 	color:blue;
 }
 
@@ -268,13 +339,13 @@ body {
 	font-size:15px;
 	width:300px;
 	margin-top: 20px;
-	margin-left:450px;
+	margin-left:5px;
 }
 
 .edit_channel_name {
 	font-size:30px;
 	margin-top: 20px;
-	margin-left:450px;
+	margin-left:5px;
 	color:blue;
 }
 
@@ -283,15 +354,27 @@ body {
 	font-size:15px;
 	width:300px;
 	margin-top: 20px;
-	margin-left:450px;
+	margin-left:5px;
 }
 
 .change_slack {
+	font-size: 20px;
 	margin-top: 20px;
-	margin-left:450px;
+	margin-left:5px;
+}
+
+.back_slack {
+	font-size:20px;
+	display: block;
+	margin-top: 20px;
+	margin-left:5px;
 }
 
 /*予定ページ*/
+.registration_page {
+	background-color:#F2F2F2;
+}
+
 .date {
 	font-size: 25px;
 	margin-top:30px;
@@ -399,10 +482,14 @@ body {
 }
 
 /*予定編集ページ*/
+.editSchedlue_page {
+	background-color:#F2F2F2;
+}
+
 .edit_schedule_day_name {
 	font-size:30px;
-	margin-top:10px;
-	margin-left:450px;
+	margin-top:5%;
+	margin-left: 450px;
 	color:blue;
 }
 
@@ -470,10 +557,6 @@ body {
 	font-size: 20px;
 	margin-top:10px;
 	margin-left: 450px;
-}
-
-body {
-	background-image: url("22071184.jpg");
 }
 
 .table {
